@@ -97,7 +97,24 @@
         app:layout_constraintBottom_toBottomOf="@+id/charLength"
         app:layout_constraintEnd_toStartOf="@+id/charLength"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textChar"
+        app:layout_constraintStart_toStartOf="@+id/textNum"
         app:layout_constraintTop_toTopOf="@+id/charLength" />
+
+    <Button
+        android:id="@+id/buttonGenerate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="@string/buttonGenerate"
+        app:layout_constraintStart_toStartOf="@+id/textNum"
+        app:layout_constraintTop_toBottomOf="@+id/textSize" />
+
+    <Button
+        android:id="@+id/buttonCopy"
+        android:layout_width="88dp"
+        android:layout_height="0dp"
+        android:text="@string/buttonCopy"
+        app:layout_constraintEnd_toEndOf="@+id/passGenerated"
+        app:layout_constraintTop_toBottomOf="@+id/passGenerated" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
