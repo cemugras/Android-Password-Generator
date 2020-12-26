@@ -3,6 +3,7 @@
     <string name="character">Characters</string>
     <string name="number">Numbers</string>
     <string name="button">Button</string>
+    <string name="size">Password Length</string>
     <string-array name="charLength">
         <item>4</item>
         <item>6</item>
