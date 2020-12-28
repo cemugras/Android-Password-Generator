@@ -12,8 +12,10 @@ import android.widget.Toast;
 import com.example.passwordgenerator.GeneratePassword;
 
 public class MainActivity extends Activity{
-    boolean numS,charS;
-    String pass;
+    protected boolean numS,charS;
+    protected String pass,passLength;
+    protected int length;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +41,20 @@ public class MainActivity extends Activity{
 
         // Generate button event
         buttonGenerate.setOnClickListener(v -> {
+            // Getting password feature selections
             numS = numSwitch.isChecked();
             charS = charSwitch.isChecked();
+            passLength = (String) spinner.getSelectedItem();
+            length = Integer.parseInt(passLength);
+
+            // Creation of password generate function
             GeneratePassword generateClass = new GeneratePassword();
-            pass = generateClass.generatePassword(numS, charS);
+            pass = generateClass.generatePasswordController(numS, charS, length);
 
             if(pass=="False"){
-                Toast.makeText(getApplicationContext(), "Plese select.",  Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please select.",  Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(getApplicationContext(), "Your Password is " + pass,  Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Password:" + pass +" Length:" + passLength,  Toast.LENGTH_SHORT).show();
             }
         });
 

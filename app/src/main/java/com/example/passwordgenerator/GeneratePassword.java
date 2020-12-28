@@ -18,22 +18,25 @@ public class GeneratePassword{
     }*/
 
     // Password generate function
-    public String generatePassword(boolean number, boolean character){
+    public String generatePasswordController(boolean number, boolean character, int length){
+
+        // Password objects creation
+        String password[] = new String[length];
+        String passwordString;
 
         // Password option controls
-        String password;
         if((number==true) && (character==true)){
-            password = "String&Integer";
-            return password;
+            passwordString = "String&Integer";
+            return passwordString;
         }else if(number==true) {
-            password = "Integer";
-            return password;
+            passwordString = "Integer";
+            return passwordString;
         }else if(character==true){
-            password = "String";
-            return password;
+            passwordString = "String";
+            return passwordString;
         }else {
-            password = "False";
-            return password;
+            passwordString = "False";
+            return passwordString;
         }
     }
 
