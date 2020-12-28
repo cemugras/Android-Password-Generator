@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.passwordgenerator.GeneratePassword;
@@ -24,6 +25,7 @@ public class MainActivity extends Activity{
 
         // UI object definitions
         Button buttonGenerate = (Button) findViewById(R.id.buttonGenerate);
+        TextView passGenerated = (TextView) findViewById(R.id.passGenerated);
         Switch numSwitch = (Switch) findViewById(R.id.switchNumber);
         Switch charSwitch = (Switch) findViewById(R.id.switchChar);
         Spinner spinner = (Spinner) findViewById(R.id.charLength);
@@ -52,9 +54,15 @@ public class MainActivity extends Activity{
             pass = generateClass.generatePasswordController(numS, charS, length);
 
             if(pass=="False"){
+
+                passGenerated.setText("");
                 Toast.makeText(getApplicationContext(), "Please select.",  Toast.LENGTH_SHORT).show();
+
             }else{
-                Toast.makeText(getApplicationContext(), "Password:" + pass +" Length:" + passLength,  Toast.LENGTH_SHORT).show();
+
+                passGenerated.setText(pass);
+                //Toast.makeText(getApplicationContext(), "Password:" + pass +" Length:" + passLength,  Toast.LENGTH_SHORT).show();
+                
             }
         });
 
