@@ -1,6 +1,8 @@
 package com.example.passwordgenerator;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -25,10 +27,16 @@ public class MainActivity extends Activity{
 
         // UI object definitions
         Button buttonGenerate = (Button) findViewById(R.id.buttonGenerate);
+        Button buttonCopy = (Button) findViewById(R.id.buttonCopy);
+
         TextView passGenerated = (TextView) findViewById(R.id.passGenerated);
+
         Switch numSwitch = (Switch) findViewById(R.id.switchNumber);
         Switch charSwitch = (Switch) findViewById(R.id.switchChar);
+
         Spinner spinner = (Spinner) findViewById(R.id.charLength);
+
+        ClipboardManager manager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         // Parsing string.xml and getting elements of specific array
@@ -56,7 +64,7 @@ public class MainActivity extends Activity{
             if(pass=="False"){
 
                 passGenerated.setText("");
-                Toast.makeText(getApplicationContext(), "Please select.",  Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please select an option.",  Toast.LENGTH_SHORT).show();
 
             }else{
 
@@ -65,6 +73,15 @@ public class MainActivity extends Activity{
                 
             }
         });
+
+        buttonCopy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                ClipData clipData = ClipData.newPlainText("text", passGenerated.getText());
+                manager.setPrimaryClip(clipData);
+            }
+        });
+
 
      }
 
