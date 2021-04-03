@@ -1,4 +1,4 @@
-package com.passwordgenerator;
+package com.cemugras.passwordgenerator;
 
 import android.app.Activity;
 import android.content.ClipData;

@@ -1,4 +1,4 @@
-package com.passwordgenerator;
+package com.cemugras.passwordgenerator;
 
 import org.junit.Test;
 
