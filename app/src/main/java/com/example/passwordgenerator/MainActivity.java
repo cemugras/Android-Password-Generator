@@ -4,15 +4,7 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.passwordgenerator.GeneratePassword;
+import android.widget.*;
 
 public class MainActivity extends Activity{
     protected boolean numS,charS;
@@ -26,15 +18,15 @@ public class MainActivity extends Activity{
         setContentView(R.layout.main_menu);
 
         // UI object definitions
-        Button buttonGenerate = (Button) findViewById(R.id.buttonGenerate);
-        Button buttonCopy = (Button) findViewById(R.id.buttonCopy);
+        Button buttonGenerate = findViewById(R.id.buttonGenerate);
+        Button buttonCopy = findViewById(R.id.buttonCopy);
 
-        TextView passGenerated = (TextView) findViewById(R.id.passGenerated);
+        TextView passGenerated = findViewById(R.id.passGenerated);
 
-        Switch numSwitch = (Switch) findViewById(R.id.switchNumber);
-        Switch charSwitch = (Switch) findViewById(R.id.switchChar);
+        Switch numSwitch = findViewById(R.id.switchNumber);
+        Switch charSwitch = findViewById(R.id.switchChar);
 
-        Spinner spinner = (Spinner) findViewById(R.id.charLength);
+        Spinner spinner = findViewById(R.id.charLength);
 
         ClipboardManager manager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 
@@ -61,7 +53,7 @@ public class MainActivity extends Activity{
             GeneratePassword generateClass = new GeneratePassword();
             pass = generateClass.generatePasswordController(numS, charS, length);
 
-            if(pass=="False"){
+            if(pass.equals("False")){
 
                 passGenerated.setText("");
                 Toast.makeText(getApplicationContext(), "Please select an option.",  Toast.LENGTH_SHORT).show();
@@ -74,12 +66,9 @@ public class MainActivity extends Activity{
             }
         });
 
-        buttonCopy.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                ClipData clipData = ClipData.newPlainText("text", passGenerated.getText());
-                manager.setPrimaryClip(clipData);
-            }
+        buttonCopy.setOnClickListener(v -> {
+            ClipData clipData = ClipData.newPlainText("text", passGenerated.getText());
+            manager.setPrimaryClip(clipData);
         });
 
 
