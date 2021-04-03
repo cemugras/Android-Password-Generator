@@ -1,4 +1,4 @@
-package com.example.passwordgenerator;
+package com.passwordgenerator;
 
 import android.os.Bundle;
 import android.view.View;

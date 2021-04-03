@@ -11,7 +11,7 @@
         android:theme="@style/Theme.PasswordGenerator">
 
     <activity
-        android:name="com.example.passwordgenerator.MainActivity"
+        android:name="com.passwordgenerator.MainActivity"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         <intent-filter>
