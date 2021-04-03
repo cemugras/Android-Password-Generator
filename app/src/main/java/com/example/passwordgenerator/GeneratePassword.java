@@ -44,18 +44,17 @@ public class GeneratePassword{
 
         // Password option controls
         if((number==true) && (character==true)){
-
             generatedPassword = generatePassword(1, length);
-
             return passwordString;
+            
         }else if(number==true) {
-
             generatedPassword = generatePassword(2, length);
             return passwordString;
+            
         }else if(character==true){
-
             generatedPassword = generatePassword(3, length);
             return passwordString;
+            
         }else {
             passwordString = "False";
             return passwordString;
