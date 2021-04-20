@@ -1,10 +1,11 @@
-package com.example.passwordgenerator;
+package com.cemugras.passwordgenerator;
 
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.widget.*;
+import com.example.passwordgenerator.R;
 
 public class MainActivity extends Activity{
     protected boolean numS,charS;
