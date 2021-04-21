@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.*;
 
 public class MainActivity extends Activity{
-    protected boolean numS,charS;
+    protected boolean numS, charS, upperS, lowerS;
     protected String pass,passLength;
     protected int length;
 
@@ -99,12 +99,14 @@ public class MainActivity extends Activity{
             // Getting password feature selections
             numS = numSwitch.isChecked();
             charS = charSwitch.isChecked();
+            upperS = upperSwitch.isChecked();
+            lowerS = lowerSwitch.isChecked();
             passLength = (String) spinner.getSelectedItem();
             length = Integer.parseInt(passLength);
 
             // Creation of password generate function
             GeneratePassword generateClass = new GeneratePassword();
-            pass = generateClass.generatePasswordController(numS, charS, length);
+            pass = generateClass.generatePasswordController(numS, charS, upperS, lowerS, length);
 
             if(pass.equals("False")){
 
