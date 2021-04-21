@@ -26,6 +26,12 @@ public class MainActivity extends Activity{
         Switch numSwitch = findViewById(R.id.switchNumber);
         Switch charSwitch = findViewById(R.id.switchChar);
 
+        // Switch objects assignment
+        numSwitch.setTextOn("ON");
+        numSwitch.setTextOff("OFF");
+        charSwitch.setTextOn("ON");
+        charSwitch.setTextOff("OFF");
+
         Spinner spinner = findViewById(R.id.charLength);
 
         ClipboardManager manager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
