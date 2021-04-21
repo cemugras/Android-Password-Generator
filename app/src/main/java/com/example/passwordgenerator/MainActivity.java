@@ -26,11 +26,20 @@ public class MainActivity extends Activity{
         Switch numSwitch = findViewById(R.id.switchNumber);
         Switch charSwitch = findViewById(R.id.switchChar);
 
+        Switch upperSwitch = findViewById(R.id.switchUpperChar);
+        Switch lowerSwitch = findViewById(R.id.switchLowerChar);
+        upperSwitch.setClickable(false);
+        lowerSwitch.setClickable(false);
+
         // Switch objects assignment
         numSwitch.setTextOn("ON");
         numSwitch.setTextOff("OFF");
         charSwitch.setTextOn("ON");
         charSwitch.setTextOff("OFF");
+        upperSwitch.setTextOn("ON");
+        upperSwitch.setTextOff("OFF");
+        lowerSwitch.setTextOn("ON");
+        lowerSwitch.setTextOff("OFF");
 
         Spinner spinner = findViewById(R.id.charLength);
 
@@ -46,6 +55,44 @@ public class MainActivity extends Activity{
 
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+        // Character Switch Event
+        charSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                upperSwitch.setChecked(true);
+                lowerSwitch.setChecked(true);
+                upperSwitch.setClickable(true);
+                lowerSwitch.setClickable(true);
+            }
+            else {
+                if(upperSwitch.isChecked() && lowerSwitch.isChecked()){
+                    upperSwitch.setChecked(false);
+                    lowerSwitch.setChecked(false);
+                }
+                else if(upperSwitch.isChecked())
+                    upperSwitch.setChecked(false);
+                else if (lowerSwitch.isChecked())
+                    lowerSwitch.setChecked(false);
+                upperSwitch.setClickable(false);
+                lowerSwitch.setClickable(false);
+            }
+        });
+
+        // Upper Character Switch Event
+        upperSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(!isChecked && charSwitch.isChecked()){
+                if(!lowerSwitch.isChecked())
+                    lowerSwitch.setChecked(true);
+            }
+        });
+
+        // Lower Character Switch Event
+        lowerSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(!isChecked && charSwitch.isChecked()){
+                if(!upperSwitch.isChecked())
+                    upperSwitch.setChecked(true);
+            }
+        });
 
         // Generate button event
         buttonGenerate.setOnClickListener(v -> {
