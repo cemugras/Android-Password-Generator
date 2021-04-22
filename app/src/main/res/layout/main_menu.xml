@@ -10,6 +10,13 @@
     android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
     android:visibility="visible">
 
+    <Button
+            android:id="@+id/buttonClear"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="@string/buttonClear"
+            app:layout_constraintStart_toStartOf="@+id/passGenerated"
+            app:layout_constraintTop_toTopOf="@+id/buttonCopy"/>
     <TextView
             android:id="@+id/textLowerChar"
             android:layout_width="wrap_content"
@@ -24,12 +31,13 @@
     />
     <Switch
             android:id="@+id/switchLowerChar"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:scrollbarSize="10dip"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/switchNumber"
-            app:layout_constraintTop_toBottomOf="@+id/switchUpperChar" android:layout_marginTop="24dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/switchUpperChar" android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="@+id/switchNumber"/>
     <TextView
             android:id="@+id/textChar"
             android:layout_width="wrap_content"
@@ -43,24 +51,22 @@
             app:layout_constraintTop_toTopOf="@+id/switchChar" app:layout_constraintVertical_bias="1.0"/>
     <Switch
             android:id="@+id/switchUpperChar"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:scrollbarSize="10dip"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/switchNumber"
-            app:layout_constraintTop_toBottomOf="@+id/switchChar" android:layout_marginTop="24dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/switchChar" android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="@+id/switchNumber"/>
     <Switch
-        android:id="@+id/switchNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="180dp"
-        android:scrollbarSize="10dip"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/switchChar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textNum"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/switchNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbarSize="10dip"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/switchChar"
+            app:layout_constraintEnd_toEndOf="@+id/passGenerated"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCopy" android:layout_marginTop="24dp"/>
 
     <TextView
             android:id="@+id/textUpperChar"
@@ -75,43 +81,42 @@
             app:layout_constraintTop_toTopOf="@+id/switchUpperChar" app:layout_constraintVertical_bias="1.0"
     />
     <TextView
-        android:id="@+id/textNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/number"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/switchNumber"
-        app:layout_constraintEnd_toStartOf="@+id/switchNumber"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/switchNumber" />
+            android:id="@+id/textNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/switchNumber"
+            app:layout_constraintStart_toStartOf="@+id/passGenerated"
+            app:layout_constraintTop_toTopOf="@+id/switchNumber"/>
 
     <Switch
-        android:id="@+id/switchChar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:scrollbarSize="10dip"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/switchNumber"
-        app:layout_constraintTop_toBottomOf="@+id/switchNumber" />
+            android:id="@+id/switchChar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:scrollbarSize="10dip"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/switchNumber"
+            app:layout_constraintTop_toBottomOf="@+id/switchNumber"
+            app:layout_constraintEnd_toEndOf="@+id/switchNumber"/>
 
     <TextView
-        android:id="@+id/passGenerated"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:autofillHints="no"
-        android:background="@drawable/border"
-        android:ems="10"
-        android:labelFor="@id/switchNumber"
-        android:scrollbarSize="20dip"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/switchNumber"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/passGenerated"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="no"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:labelFor="@id/switchNumber"
+            android:scrollbarSize="20dip"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.1"/>
 
     <TextView
             android:id="@+id/textSize"
@@ -132,25 +137,23 @@
             android:layout_height="40dp"
             android:background="@android:drawable/btn_dropdown"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@+id/switchChar"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/switchChar"
-            app:layout_constraintTop_toBottomOf="@+id/switchLowerChar" android:layout_marginTop="24dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/switchLowerChar" android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="@+id/switchNumber"
+            app:layout_constraintStart_toStartOf="@+id/switchNumber"/>
     <Button
             android:id="@+id/buttonGenerate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
             android:text="@string/buttonGenerate"
-            app:layout_constraintStart_toStartOf="@+id/textNum"
-            app:layout_constraintTop_toBottomOf="@+id/textSize"/>
+            app:layout_constraintTop_toBottomOf="@+id/textSize" app:layout_constraintEnd_toEndOf="@+id/charLength"
+            android:layout_marginTop="24dp"/>
 
     <Button
-        android:id="@+id/buttonCopy"
-        android:layout_width="88dp"
-        android:layout_height="0dp"
-        android:text="@string/buttonCopy"
-        app:layout_constraintEnd_toEndOf="@+id/passGenerated"
-        app:layout_constraintTop_toBottomOf="@+id/passGenerated" />
+            android:id="@+id/buttonCopy"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="@string/buttonCopy"
+            app:layout_constraintEnd_toEndOf="@+id/passGenerated"
+            app:layout_constraintTop_toBottomOf="@+id/passGenerated" android:layout_marginTop="24dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

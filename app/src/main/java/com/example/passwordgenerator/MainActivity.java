@@ -20,6 +20,7 @@ public class MainActivity extends Activity{
         // UI object definitions
         Button buttonGenerate = findViewById(R.id.buttonGenerate);
         Button buttonCopy = findViewById(R.id.buttonCopy);
+        Button buttonClear = findViewById(R.id.buttonClear);
 
         TextView passGenerated = findViewById(R.id.passGenerated);
 
@@ -92,6 +93,12 @@ public class MainActivity extends Activity{
                 if(!upperSwitch.isChecked())
                     upperSwitch.setChecked(true);
             }
+        });
+
+        // Clear button event
+        buttonClear.setOnClickListener(v -> {
+
+            passGenerated.setText("");
         });
 
         // Generate button event
