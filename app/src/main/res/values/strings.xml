@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Password Generator</string>
     <string name="character">Characters</string>
+    <string name="lowerCharacter">Lower Characters</string>
+    <string name="upperCharacter">Upper Characters</string>
     <string name="number">Numbers</string>
     <string name="size">Password Length</string>
     <string name="buttonGenerate">Generate</string>
     <string name="buttonCopy">Copy</string>
+    <string name="buttonClear">Clear</string>
     <string-array name="charLength">
         <item>4</item>
         <item>6</item>
@@ -15,5 +18,14 @@
         <item>16</item>
         <item>18</item>
         <item>20</item>
+    </string-array>
+    <string-array name="passwordType">
+        <item>numberChar</item>
+        <item>numberUpperChar</item>
+        <item>numberLowerChar</item>
+        <item>numberOnly</item>
+        <item>charOnly</item>
+        <item>upperChar</item>
+        <item>lowerChar</item>
     </string-array>
 </resources>

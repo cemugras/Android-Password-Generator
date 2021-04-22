@@ -1,23 +1,8 @@
 package com.cemugras.passwordgenerator;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Switch;
-import android.widget.Toast;
-
 import java.util.Random;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
 public class GeneratePassword{
-
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_menu);
-    }*/
 
     // create a string of uppercase and lowercase characters and numbers
     String upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -26,7 +11,11 @@ public class GeneratePassword{
 
     // combine all strings
     String alphaNumeric = upperAlphabet + lowerAlphabet + numbers;
+    String alphaNumericUpper = upperAlphabet + numbers;
+    String alphaNumericLower = lowerAlphabet + numbers;
     String onlyCharacter = upperAlphabet + lowerAlphabet;
+    String onlyCharacterUpper = upperAlphabet;
+    String onlyCharacterLower = lowerAlphabet;
     String onlyNumeric = numbers;
     String passwordString, generatedPassword;
 
@@ -37,78 +26,75 @@ public class GeneratePassword{
     Random random = new Random();
 
     // Password generate function
-    public String generatePasswordController(boolean number, boolean character, int length){
-
-        // Password objects creation
-        String password[] = new String[length];
+    public String generatePasswordController(boolean number, boolean character, boolean upperCharacter, boolean lowerCharacter, int length){
 
         // Password option controls
-        if((number==true) && (character==true)){
-            generatedPassword = generatePassword(1, length);
+
+        // If password type is character and number
+        if(number && character && upperCharacter && lowerCharacter){
+            /*generatedPassword = generatePassword("CharNum", length);*/
+            generatedPassword = generatePassword(alphaNumeric, length);
             return passwordString;
-            
-        }else if(number==true) {
-            generatedPassword = generatePassword(2, length);
+
+        // If password type is upper character and number
+        }else if(number && character && upperCharacter) {
+            /*generatedPassword = generatePassword("CharUpperNum", length);*/
+            generatedPassword = generatePassword(alphaNumericUpper, length);
             return passwordString;
-            
-        }else if(character==true){
-            generatedPassword = generatePassword(3, length);
+
+        // If password type is lower character and number
+        }else if(number && character && lowerCharacter) {
+            /*generatedPassword = generatePassword("CharLowerNum", length);*/
+            generatedPassword = generatePassword(alphaNumericLower, length);
             return passwordString;
-            
+
+        // If password type is only number
+        }else if(number) {
+            /*generatedPassword = generatePassword("OnlyNum", length);*/
+            generatedPassword = generatePassword(onlyNumeric, length);
+            return passwordString;
+
+        // If password type is only character
+        }else if(character && upperCharacter && lowerCharacter){
+            /*generatedPassword = generatePassword("OnlyChar", length);*/
+            generatedPassword = generatePassword(onlyCharacter, length);
+            return passwordString;
+
+        // If password type is upper character
+        }else if(character && upperCharacter){
+            /*generatedPassword = generatePassword("OnlyCharUpper", length);*/
+            generatedPassword = generatePassword(onlyCharacterUpper, length);
+            return passwordString;
+
+        // If password type is upper character
+        }else if(character && lowerCharacter){
+            /*generatedPassword = generatePassword("OnlyCharLower", length);*/
+            generatedPassword = generatePassword(onlyCharacterLower, length);
+            return passwordString;
+
+        // If password type is null(clicked switch not found)
         }else {
             passwordString = "False";
             return passwordString;
         }
     }
 
-    private String generatePassword(int type, int length){
-        // If password type is character and number
-        if(type == 1) {
-            for (int i = 0; i < length; i++) {
-                // generate random index number
-                int index = random.nextInt(alphaNumeric.length());
+    private String generatePassword(String passVariables, int length){
+        for (int i = 0; i < length; i++) {
+            // generate random index number
+            int index = random.nextInt(passVariables.length());
 
-                // get character specified by index
-                // from the string
-                char randomChar = alphaNumeric.charAt(index);
+            // get character specified by index
+            // from the string
+            char randomChar = passVariables.charAt(index);
 
-                // append the character to string builder
-                sb.append(randomChar);
-            }
-        }
-        // If password type is only number
-        else if(type == 2){
-            for (int i = 0; i < length; i++) {
-                // generate random index number
-                int index = random.nextInt(onlyNumeric.length());
-
-                // get character specified by index
-                // from the string
-                char randomChar = onlyNumeric.charAt(index);
-
-                // append the character to string builder
-                sb.append(randomChar);
-            }
-        }
-        // If password type is only character
-        else if(type == 3){
-            for (int i = 0; i < length; i++) {
-                // generate random index number
-                int index = random.nextInt(onlyCharacter.length());
-
-                // get character specified by index
-                // from the string
-                char randomChar = onlyCharacter.charAt(index);
-
-                // append the character to string builder
-                sb.append(randomChar);
-            }
+            // append the character to string builder
+            sb.append(randomChar);
         }
 
         passwordString = sb.toString();
 
         return passwordString;
     }
-
 
 }
