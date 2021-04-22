@@ -18,4 +18,13 @@
         <item>18</item>
         <item>20</item>
     </string-array>
+    <string-array name="passwordType">
+        <item>numberChar</item>
+        <item>numberUpperChar</item>
+        <item>numberLowerChar</item>
+        <item>numberOnly</item>
+        <item>charOnly</item>
+        <item>upperChar</item>
+        <item>lowerChar</item>
+    </string-array>
 </resources>
