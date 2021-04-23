@@ -12,14 +12,14 @@
 
     <Button
             android:id="@+id/buttonClear"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/buttonClear"
             app:layout_constraintStart_toStartOf="@+id/passGenerated"
             app:layout_constraintTop_toTopOf="@+id/buttonCopy"/>
     <TextView
             android:id="@+id/textLowerChar"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lowerCharacter"
             android:textAlignment="textStart"
@@ -28,7 +28,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/switchLowerChar"
             app:layout_constraintStart_toStartOf="@+id/textNum"
             app:layout_constraintTop_toTopOf="@+id/switchLowerChar" app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintEnd_toEndOf="@+id/textNum"/>
+    />
     <Switch
             android:id="@+id/switchLowerChar"
             android:layout_width="0dp"
@@ -40,7 +40,7 @@
             app:layout_constraintEnd_toEndOf="@+id/switchNumber"/>
     <TextView
             android:id="@+id/textChar"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/character"
             android:textAlignment="textStart"
@@ -48,8 +48,8 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/switchChar"
             app:layout_constraintStart_toStartOf="@+id/textNum"
-            app:layout_constraintTop_toTopOf="@+id/switchChar" app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintEnd_toEndOf="@+id/textNum"/>
+            app:layout_constraintTop_toTopOf="@+id/switchChar" app:layout_constraintVertical_bias="0.45999998"
+    />
     <Switch
             android:id="@+id/switchUpperChar"
             android:layout_width="0dp"
@@ -71,7 +71,7 @@
 
     <TextView
             android:id="@+id/textUpperChar"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/upperCharacter"
             android:textAlignment="textStart"
@@ -80,10 +80,10 @@
             app:layout_constraintBottom_toBottomOf="@+id/switchUpperChar"
             app:layout_constraintStart_toStartOf="@+id/textNum"
             app:layout_constraintTop_toTopOf="@+id/switchUpperChar" app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintEnd_toEndOf="@+id/textNum"/>
+    />
     <TextView
             android:id="@+id/textNum"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/number"
             android:textAlignment="textStart"
@@ -92,7 +92,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/switchNumber"
             app:layout_constraintStart_toStartOf="@+id/passGenerated"
             app:layout_constraintTop_toTopOf="@+id/switchNumber"
-            app:layout_constraintEnd_toStartOf="@+id/switchNumber"/>
+            app:layout_constraintVertical_bias="0.93"/>
 
     <Switch
             android:id="@+id/switchChar"
@@ -108,7 +108,7 @@
     <TextView
             android:id="@+id/passGenerated"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:autofillHints="no"
             android:background="@drawable/border"
             android:ems="10"
@@ -118,21 +118,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.1"/>
+            app:layout_constraintVertical_bias="0.089999974"/>
 
     <TextView
             android:id="@+id/textSize"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/size"
             android:textAlignment="textStart"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/charLength"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textNum"
             app:layout_constraintTop_toTopOf="@+id/charLength" app:layout_constraintVertical_bias="0.384"
-            app:layout_constraintEnd_toEndOf="@+id/textNum"/>
+    />
     <Spinner
             android:id="@+id/charLength"
             android:layout_width="0dp"
@@ -152,8 +151,8 @@
 
     <Button
             android:id="@+id/buttonCopy"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/buttonCopy"
             app:layout_constraintEnd_toEndOf="@+id/passGenerated"
             app:layout_constraintTop_toBottomOf="@+id/passGenerated" android:layout_marginTop="24dp"/>

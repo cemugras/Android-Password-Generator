@@ -97,10 +97,7 @@ public class MainActivity extends Activity{
         });
 
         // Clear button event
-        buttonClear.setOnClickListener(v -> {
-
-            passGenerated.setText("");
-        });
+        buttonClear.setOnClickListener(v -> passGenerated.setText(""));
 
         // Generate button event
         buttonGenerate.setOnClickListener(v -> {
