@@ -8,7 +8,7 @@ import android.widget.*;
 import com.example.passwordgenerator.R;
 
 public class MainActivity extends Activity{
-    protected boolean numS, charS, upperS, lowerS;
+    protected boolean numS, charS, upperS, lowerS, specS;
     protected String pass,passLength;
     protected int length;
 
@@ -33,6 +33,8 @@ public class MainActivity extends Activity{
         upperSwitch.setClickable(false);
         lowerSwitch.setClickable(false);
 
+        Switch specSwitch = findViewById(R.id.switchSpecChar);
+
         // Switch objects assignment
         numSwitch.setTextOn("ON");
         numSwitch.setTextOff("OFF");
@@ -42,6 +44,8 @@ public class MainActivity extends Activity{
         upperSwitch.setTextOff("OFF");
         lowerSwitch.setTextOn("ON");
         lowerSwitch.setTextOff("OFF");
+        specSwitch.setTextOn("ON");
+        specSwitch.setTextOff("OFF");
 
         Spinner spinner = findViewById(R.id.charLength);
 
@@ -106,12 +110,13 @@ public class MainActivity extends Activity{
             charS = charSwitch.isChecked();
             upperS = upperSwitch.isChecked();
             lowerS = lowerSwitch.isChecked();
+            specS = specSwitch.isChecked();
             passLength = (String) spinner.getSelectedItem();
             length = Integer.parseInt(passLength);
 
             // Creation of password generate function
             GeneratePassword generateClass = new GeneratePassword();
-            pass = generateClass.generatePasswordController(numS, charS, upperS, lowerS, length);
+            pass = generateClass.generatePasswordController(numS, charS, upperS, lowerS, specS, length);
 
             if(pass.equals("False")){
 
@@ -129,6 +134,7 @@ public class MainActivity extends Activity{
         buttonCopy.setOnClickListener(v -> {
             ClipData clipData = ClipData.newPlainText("text", passGenerated.getText());
             manager.setPrimaryClip(clipData);
+            Toast.makeText(getApplicationContext(), "Password copied to clipboard.",  Toast.LENGTH_SHORT).show();
         });
 
 
