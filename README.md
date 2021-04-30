@@ -1,6 +1,6 @@
 # Android-Password-Generator
 Password generator with dynamic lenght and content.
-- Characters (Lower-Upper)
+- Characters (Lower-Upper-Special)
 - Numbers
 - Even numbers of lengt
 
